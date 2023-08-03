@@ -7,7 +7,7 @@ export const Menu = () => {
       <NavbarBrand>
         <img src="https://klassy.com.bd/public/uploads/settings/general/lrChtKFxC6of10DxZNezmW2eFIejECHWnZglkIHG.png" alt="" />
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-5" justify="center">
+      <NavbarContent className="hidden sm:flex gap-10" justify="center">
         <NavbarItem>
           <a href="/">
             Coupons

@@ -1,8 +1,9 @@
 import PopUp from '../PopUp'
 import './Coupons.css'
 export const Coupon = ({coupons}) => {
-
+    const options = { year: 'numeric', month: 'short', day: 'numeric' }
     const couponList = coupons && coupons.map((coupon, index) => {
+
         return (
             <div className="coupon m-10" key={index}>
                 <div className="center">
@@ -18,7 +19,7 @@ export const Coupon = ({coupons}) => {
                     <p className='mb-2'>Spend: {coupon.minSpend}TK</p>
                     <p className='text-2xl'>{coupon.amount}TK</p>
                     <p>Max Discount</p>
-                    <p className="text-xs mt-3 font-thin">Valid Until {coupon.expiryDate}</p>
+                    <p className="text-xs mt-3 font-thin">Valid Until {new Date(coupon.expiryDate).toLocaleDateString('en-US', options)}</p>
                 </div>
 
                 <div className='circle1 left-[-25px]'></div>

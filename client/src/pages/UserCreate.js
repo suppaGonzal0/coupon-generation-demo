@@ -13,24 +13,24 @@ export const UserCreate = () => {
 
 
     const getUsers = useCallback(
-      () => {
-        axios.get(`${SERVER_BASE_URL}/users`)
-            .then((response) => {
-                setUsers(response.data)
-                console.log(response.data);
-            }).catch(e => {
-                console.log(e);
-            })
-      },
-      []
+        () => {
+            axios.get(`${SERVER_BASE_URL}/users`)
+                .then((response) => {
+                    setUsers(response.data)
+                    console.log(response.data);
+                }).catch(e => {
+                    console.log(e);
+                })
+        },
+        []
     )
-    
+
 
     const createUser = (e) => {
         axios.post(`${SERVER_BASE_URL}/users`, {
             email: emailRef.current.value,
             password: passwordRef.current.value
-        }).then( () => 
+        }).then(() =>
             getUsers()
         ).catch(e => {
             alert(e.response.data)
@@ -43,6 +43,7 @@ export const UserCreate = () => {
 
     return (
         <div className="h-screen">
+            <p className="my-5 text-2xl text-bold text-center">CREATE USER</p>
             <form
                 onSubmit={createUser}
                 className="flex justify-center items-center gap-5 my-10"

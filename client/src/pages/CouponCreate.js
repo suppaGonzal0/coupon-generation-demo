@@ -52,6 +52,7 @@ export const CouponCreate = () => {
 
   return (
     <div className="h-screen">
+      <p className="my-5 text-2xl text-bold text-center">CREATE COUPON</p>
       <form
         onSubmit={createCoupon}
         className="flex flex-col justify-center items-center my-10"
@@ -124,7 +125,7 @@ export const CouponCreate = () => {
           type="submit"
           className='bg-black text-white min-w-[220px]'
         >
-          Create Coupon
+          Generate
         </Button>
       </form>
 
