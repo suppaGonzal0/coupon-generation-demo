@@ -3,7 +3,7 @@ import axios from "axios";
 import { SERVER_BASE_URL } from "../Global";
 import { useRef } from "react";
 
-export default function PopUp({ coupon }) {
+export default function PopUp({ coupon, getCoupons }) {
   const titleRef = useRef();
   const descriptionRef = useRef();
   const minSpendRef = useRef();
@@ -14,7 +14,7 @@ export default function PopUp({ coupon }) {
   const onDelete = () => {
     axios.delete(`${SERVER_BASE_URL}/coupons/${coupon.code}`)
       .then(() => {
-        window.location.reload(false);
+        getCoupons()
       })
   }
 
@@ -34,7 +34,7 @@ export default function PopUp({ coupon }) {
       axios.put(`${SERVER_BASE_URL}/coupons`, {
         ...updatedCoupon
       }).then((res) => {
-        console.log(res);
+        getCoupons()
       })
   }
 

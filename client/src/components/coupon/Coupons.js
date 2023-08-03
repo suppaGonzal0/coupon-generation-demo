@@ -1,6 +1,6 @@
 import PopUp from '../PopUp'
 import './Coupons.css'
-export const Coupon = ({coupons}) => {
+export const Coupon = ({coupons, getCoupons}) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' }
     const couponList = coupons && coupons.map((coupon, index) => {
 
@@ -11,7 +11,7 @@ export const Coupon = ({coupons}) => {
                         <p className='mb-2 line-clamp-1 max-w-[25ch]'>{coupon.title}</p>
                         <p className='text-sm line-clamp-2 max-w-[28ch] leading-4'>{coupon.description}</p>
                         <p className='text-sm text-bold mt-1'>Code: {coupon.code}</p>
-                        <PopUp coupon={coupon}/>
+                        <PopUp coupon={coupon} getCoupons={getCoupons}/>
                     </div>
                 </div>
 

@@ -13,9 +13,7 @@ export const CouponCreate = () => {
   const voucher_codes = require('voucher-code-generator')
   const [coupons, setCoupons] = useState([])
 
-  const createCoupon = e => {
-    e.preventDefault()
-
+  const createCoupon = () => {
     axios.post(`${SERVER_BASE_URL}/coupons`, {
       code: voucher_codes.generate({ length: 5, count: 1 })[0],
       title: titleRef.current.value,
@@ -129,7 +127,7 @@ export const CouponCreate = () => {
         </Button>
       </form>
 
-      <Coupon coupons={coupons}/>
+      <Coupon coupons={coupons} getCoupons={getCoupons}/>
     </div>
   )
 }
